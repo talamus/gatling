@@ -57,8 +57,11 @@ docker run -e JAVA_OPTS="-Dusers=10" -it --rm denvazh/gatling
 # Command line arguments
 
 Command line arguments for Compiler and Gatling can be sent via environment variables:
+
 * `COMPILER_ARGS`
 * `GATLING_ARGS`
+
 Or by text files located in the `gatling/conf` volume:
-* compiler_args.txt
-* gatling_args.txt
+
+* `compiler_args.txt`
+* `gatling_args.txt`
