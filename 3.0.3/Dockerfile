@@ -26,8 +26,12 @@ RUN apk add --update wget bash libc6-compat && \
   mv /tmp/archive/gatling-charts-highcharts-bundle-$GATLING_VERSION/* /opt/gatling/ && \
   rm -rf /tmp/*
 
+# replace the entrypoint script
+COPY gatling.sh /opt/gatling/bin/entrypoint.sh
+RUN chmod +x /opt/gatling/bin/entrypoint.sh
+
 # change context to gatling directory
-WORKDIR  /opt/gatling
+WORKDIR /opt/gatling
 
 # set directories below to be mountable from host
 VOLUME ["/opt/gatling/conf", "/opt/gatling/results", "/opt/gatling/user-files"]
@@ -36,4 +40,8 @@ VOLUME ["/opt/gatling/conf", "/opt/gatling/results", "/opt/gatling/user-files"]
 ENV PATH /opt/gatling/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV GATLING_HOME /opt/gatling
 
-ENTRYPOINT ["gatling.sh"]
+# optional command line arguments via environment variables
+ENV COMPILER_ARGS=
+ENV GATLING_ARGS=
+
+ENTRYPOINT ["entrypoint.sh"]

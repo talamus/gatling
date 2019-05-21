@@ -4,43 +4,6 @@
 
 # Docker Tags
 
-* 2.0.0-RC1
-* 2.0.0-RC2
-* 2.0.0-RC3
-* 2.0.0-RC4
-* 2.0.0-RC5
-* 2.0.0-RC6
-* 2.0.0
-* 2.0.1
-* 2.0.2
-* 2.0.3
-* 2.1.0
-* 2.1.1
-* 2.1.2
-* 2.1.3
-* 2.1.4
-* 2.1.5
-* 2.1.6
-* 2.1.7
-* 2.2.0-M1
-* 2.2.0-M2
-* 2.2.0-M2
-* 2.2.0
-* 2.2.1
-* 2.2.2
-* 2.2.3
-* 2.2.4
-* 2.2.5
-* 2.3.0
-* 2.3.1
-* 3.0.0-RC1
-* 3.0.0-RC2
-* 3.0.0-RC3
-* 3.0.0-RC4
-* 3.0.0
-* 3.0.1
-* 3.0.1.1
-* 3.0.2
 * 3.0.3 (latest)
 
 [![CircleCI](https://circleci.com/gh/denvazh/gatling/tree/master.svg?style=svg)](https://circleci.com/gh/denvazh/gatling/tree/master)
@@ -90,3 +53,12 @@ Use the `-e` switch to use JAVA_OPTS to pass parameters to gatling tests
 ```
 docker run -e JAVA_OPTS="-Dusers=10" -it --rm denvazh/gatling
 ```
+
+# Command line arguments
+
+Command line arguments for Compiler and Gatling can be sent via environment variables:
+* `COMPILER_ARGS`
+* `GATLING_ARGS`
+Or by text files located in the `gatling/conf` volume:
+* compiler_args.txt
+* gatling_args.txt
